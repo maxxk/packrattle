@@ -17,13 +17,14 @@
   ],
 
   "scripts": {
-    "test": "./node_modules/.bin/plz --color -v test"
+    "test": "./node_modules/.bin/plz --color -v test",
+    "postinstall": "./node_modules/.bin/coffee -o lib -c src/packrattle.coffee && ./node_modules/.bin/coffee -o lib/packrattle -c src/packrattle"
   },
   "dependencies": {
+    "coffee-script": "~1.7.0",
     "weakmap": "0.0.6"
   },
   "devDependencies": {
-    "coffee-script": "~1.7.0",
     "mocha": "*",
     "plz": "*",
     "should": "*"
