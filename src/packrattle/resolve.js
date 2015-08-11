@@ -10,6 +10,7 @@ try {
 
 const ID = haveSymbol ? Symbol("id") : "__packrattle_Symbol_id";
 let LazyId = 0;
+var combiners, Parser, simple;
 
 /*
  * convert a "parser" into an actual Parser object.
@@ -35,9 +36,9 @@ module.exports = exports = function resolve(parser, functionCache = null) {
   }
 
   // avoid 'require' loops.
-  const combiners = require("./combiners");
-  const Parser = require("./parser").Parser;
-  const simple = require("./simple");
+  combiners = combiners || require("./combiners");
+  Parser = Parser || require("./parser").Parser;
+  simple = simple || require("./simple");
 
   // implicits:
   if (typeof parser == "string") parser = simple.string(parser);
