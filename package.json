@@ -1,37 +1,36 @@
 {
   "name": "packrattle",
-  "version": "3.0.1",
+  "version": "4.0.1",
   "description": "GLL parser-combinator library",
-  "keywords": [ "parser", "packrat", "gll", "coffee-script" ],
+  "keywords": [
+    "parser",
+    "packrat",
+    "gll"
+  ],
   "author": "Robey Pointer <robeypointer@gmail.com>",
   "homepage": "https://github.com/robey/packrattle",
   "repository": {
     "type": "git",
     "url": "git://github.com/robey/packrattle.git"
   },
-  "licenses": [
-    {
-      "type": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
-    }
-  ],
-
+  "license": "Apache-2.0",
   "scripts": {
-    "test": "./node_modules/.bin/plz --color -v test",
-    "postinstall": "./node_modules/.bin/coffee -o lib -c src/packrattle.coffee && ./node_modules/.bin/coffee -o lib/packrattle -c src/packrattle"
+    "clean": "rm -rf lib test/lib",
+    "distclean": "npm run clean && rm -rf node_modules npm-debug.log",
+    "prepublish": "babel --source-maps --out-dir lib src && babel --source-maps --out-dir test/lib test/src",
+    "test": "mocha -R spec --colors --recursive test/lib"
   },
-  "dependencies": {
-    "coffee-script": "~1.7.0",
-    "weakmap": "0.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "*",
-    "plz": "*",
-    "should": "*"
+    "babel": "latest",
+    "mocha": "latest",
+    "should": "latest",
+    "source-map-support": "latest"
   },
-  "main": "./lib/packrattle",
+  "main": "./lib",
   "files": [
-    "build.plz",
+    "LICENSE.txt",
+    "docs",
     "lib",
     "test"
   ]

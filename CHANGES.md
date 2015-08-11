@@ -1,3 +1,10 @@
+## 4.0.1  (30 jul 2015)
+
+- fixed bugs in package.json that made it effectively unloadable
+
+## 4.0.0  (29 jul 2015)
+
+- rewrote in ES6
 
 ## 3.0.1  (15 feb 2013)
 
